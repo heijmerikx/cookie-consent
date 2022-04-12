@@ -1,6 +1,4 @@
 "use strict"
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
 const path = require( "path" )
 
 const config = {
@@ -19,7 +17,7 @@ const config = {
           {
             test: /\.scss?$/,
             use : [
-              MiniCssExtractPlugin.loader,
+              "style-loader",
               "css-loader", // translates CSS into CommonJS
               "sass-loader", // compiles Sass to CSS, using Node Sass by default
             ]

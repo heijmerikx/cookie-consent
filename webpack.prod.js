@@ -11,6 +11,27 @@ module.exports = Object.assign({}, common, {
       path: path.resolve(__dirname, "dist"),
       filename: "cookie-consent.js",
     },
+    module: {
+      rules: [
+        {
+          test: /\.js?$/,
+          loader: "babel-loader",
+          options: {
+            root: __dirname
+          },
+          exclude: /node_modules/,
+        },
+        {
+          test: /\.(sa|sc|c)ss$/,
+          use : [
+            MiniCssExtractPlugin.loader,
+            "css-loader", // translates CSS into CommonJS
+            "postcss-loader",
+            "sass-loader", // compiles Sass to CSS, using Node Sass by default
+          ]
+        }
+      ],
+  },
     plugins: [
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin()
